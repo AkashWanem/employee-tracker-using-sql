@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS employee_db;
+DROP DATABASE IF EXISTS employees_db;
 -- creates database called employee_db
-CREATE DATABASE employee_db;
+CREATE DATABASE employees_db;
 
-USE employee_db;
+USE employees_db;
 
 -- creates table called department
 CREATE TABLE department (
