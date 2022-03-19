@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 });
 
 // connects to sql server and sql database
-db.connect((err){
+db.connect((err) => {
     if (err) throw err;
     console.log('successfully connected to employees database');
     promptQuestions();
@@ -41,7 +41,7 @@ const promptQuestions = () => {
                 'View department budgets',
                 'EXIT'
             ]            
-        }).then((answer) {
+        }).then((answer) => {
             switch (answer.select) {
                 case 'View all departments':
                     viewDepartments();
@@ -89,8 +89,17 @@ const promptQuestions = () => {
 function viewDepartments() {
     db.query(`SELECT * FROM department`, (err, res) => {
         if (err) throw err;
-        console.log(res.length + ' employees found!');
-        console.table('All Employees:', res);
+        console.log(res.length + ' Departments found!');
+        console.table('All Departments:', res);
+        promptQuestions();
+    })
+};
+
+// function to view all roles
+function viewRoles() {
+    db.query(`SELECT * FROM role`, (err, res) => {
+        if (err) throw err;
+        console.table('All roles:', res);
         promptQuestions();
     })
 };
