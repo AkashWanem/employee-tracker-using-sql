@@ -84,3 +84,13 @@ const promptQuestions = () => {
             }
         })
 };
+
+// function to view all departments
+function viewDepartments() {
+    db.query(`SELECT * FROM department`, (err, res) => {
+        if (err) throw err;
+        console.log(res.length + ' employees found!');
+        console.table('All Employees:', res);
+        promptQuestions();
+    })
+};
